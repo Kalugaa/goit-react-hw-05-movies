@@ -11,7 +11,7 @@ const MovieList = (films, location) => {
           <StyledMovieLink
             to={`/movies/${film.id}`}
             key={film.id}
-            state={{ from: films.location }}
+            state={{ from: location }}
           >
             {film.title}
           </StyledMovieLink>

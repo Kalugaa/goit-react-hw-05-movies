@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getTrending } from 'apiHelpers';
 import { useLocation } from 'react-router-dom';
-import { StyledH2, StyledMovieLink } from './Home.styled';
+import { StyledH2 } from './Home.styled';
 import MovieList from 'components/MovieList/MovieList';
 
 const Home = () => {
@@ -29,4 +29,3 @@ const Home = () => {
 };
 
 export default Home;
-1;
