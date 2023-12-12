@@ -27,13 +27,20 @@ const MovieDetails = () => {
     getMovieDetails(movieID);
   }, [movieID]);
 
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+
   return (
     <div>
       <Link to={backLinckRef}>Go Back</Link>
       <StyledDiv>
         <div>
           <StyledIMG
-            src={`https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}`}
+            src={
+              movieInfo.poster_path
+                ? `https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}`
+                : defaultImg
+            }
             alt={movieInfo.title}
           />
         </div>

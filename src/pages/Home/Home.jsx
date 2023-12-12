@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getTrending } from 'apiHelpers';
 import { useLocation } from 'react-router-dom';
 import { StyledH2, StyledMovieLink } from './Home.styled';
+import MovieList from 'components/MovieList/MovieList';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -22,19 +23,10 @@ const Home = () => {
   return (
     <div>
       <StyledH2>Trending Today</StyledH2>
-      <ul>
-        {movies.map(movie => (
-          <StyledMovieLink
-            to={`movies/${movie.id}`}
-            key={movie.id}
-            state={{ from: location }}
-          >
-            {movie.title}
-          </StyledMovieLink>
-        ))}
-      </ul>
+      {movies.length > 0 && <MovieList films={movies} location={location} />}
     </div>
   );
 };
 
 export default Home;
+1;

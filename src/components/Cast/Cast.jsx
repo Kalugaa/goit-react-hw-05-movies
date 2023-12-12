@@ -19,6 +19,9 @@ const Cast = () => {
     getMovieCast(movieID);
   }, [movieID]);
 
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+
   return (
     <div>
       <ul>
@@ -26,7 +29,11 @@ const Cast = () => {
           movieCast.map(actor => (
             <li key={actor.id}>
               <StyledIMG
-                src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                src={
+                  actor.profile_path
+                    ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
+                    : defaultImg
+                }
                 alt={actor.name}
               />
               <p>{actor.name}</p>
