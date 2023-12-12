@@ -7,3 +7,7 @@ export const StyledMovieLink = styled(Link)`
   gap: 15px;
   text-decoration: none;
 `;
+
+export const StyledUL = styled.ul`
+  padding-left: 15px;
+`;

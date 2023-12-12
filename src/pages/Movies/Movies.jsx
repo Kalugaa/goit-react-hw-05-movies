@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useLocation, useSearchParams } from 'react-router-dom';
 import MovieList from 'components/MovieList/MovieList';
+import { StyledForm } from './Movies.styled';
 
 const Movies = () => {
   const [query, setQuery] = useState('');
@@ -46,7 +47,7 @@ const Movies = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit}>
         <input
           value={query}
           type="text"
@@ -54,7 +55,7 @@ const Movies = () => {
           onChange={handleChange}
         ></input>
         <button>Search</button>
-      </form>
+      </StyledForm>
       {films.length > 0 && <MovieList films={films} location={location} />}
     </div>
   );

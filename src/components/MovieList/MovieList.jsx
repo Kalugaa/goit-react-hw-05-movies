@@ -1,22 +1,20 @@
 import React from 'react';
-import { StyledMovieLink } from './MovieList.styled';
+import { StyledMovieLink, StyledUL } from './MovieList.styled';
 
-const MovieList = (films, location) => {
-  console.log('films', films.films);
-
+const MovieList = films => {
   return (
-    <ul>
+    <StyledUL>
       {films.films.length > 0 &&
         films.films.map(film => (
           <StyledMovieLink
             to={`/movies/${film.id}`}
             key={film.id}
-            state={{ from: location }}
+            state={{ from: films.location }}
           >
             {film.title}
           </StyledMovieLink>
         ))}
-    </ul>
+    </StyledUL>
   );
 };
 

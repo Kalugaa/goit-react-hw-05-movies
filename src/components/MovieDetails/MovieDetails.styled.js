@@ -27,3 +27,15 @@ export const StyledMovieLink = styled(Link)`
   gap: 15px;
   text-decoration: none;
 `;
+
+export const Container = styled.div`
+  padding-left: 15px;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: chocolate;
+`;
+export const StyledButton = styled.button`
+  background-color: transparent;
+`;

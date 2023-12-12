@@ -6,7 +6,7 @@ const Reviews = () => {
   const { movieID } = useParams();
   const [movieReviews, setMovieReviews] = useState([]);
   const location = useLocation();
-  console.log('location', location);
+  console.log('location', location?.state?.from?.state?.from);
 
   useEffect(() => {
     const getMovieReviews = async movieID => {

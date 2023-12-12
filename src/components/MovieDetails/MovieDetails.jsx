@@ -2,8 +2,11 @@ import { getMovieByID } from 'apiHelpers';
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import {
+  Container,
+  StyledButton,
   StyledDiv,
   StyledIMG,
+  StyledLink,
   StyledMovieLink,
   StyledSpan,
   StyledUL,
@@ -13,7 +16,8 @@ const MovieDetails = () => {
   const { movieID } = useParams();
   const [movieInfo, setMovieInfo] = useState({});
   const location = useLocation();
-  const backLinckRef = location?.state?.from ?? '/';
+  const backLinkRef =
+    location?.state?.from?.state?.from || location?.state?.from || '/';
 
   useEffect(() => {
     const getMovieDetails = async movieID => {
@@ -31,8 +35,10 @@ const MovieDetails = () => {
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   return (
-    <div>
-      <Link to={backLinckRef}>Go Back</Link>
+    <Container>
+      <StyledButton>
+        <StyledLink to={backLinkRef}>Go Back</StyledLink>
+      </StyledButton>
       <StyledDiv>
         <div>
           <StyledIMG
@@ -70,7 +76,7 @@ const MovieDetails = () => {
         </StyledUL>
       </div>
       <Outlet />
-    </div>
+    </Container>
   );
 };
 
