@@ -38,4 +38,5 @@ export const StyledLink = styled(Link)`
 `;
 export const StyledButton = styled.button`
   background-color: transparent;
+  border-radius: 5px;
 `;
