@@ -1,7 +1,8 @@
 import { searchFilmByKey } from 'apiHelpers';
 import React, { useEffect, useState } from 'react';
-import { StyledMovieLink } from './Movies.styled';
+
 import { useLocation, useSearchParams } from 'react-router-dom';
+import MovieList from 'components/MovieList/MovieList';
 
 const Movies = () => {
   const [query, setQuery] = useState('');
@@ -54,15 +55,7 @@ const Movies = () => {
         ></input>
         <button>Search</button>
       </form>
-      {films.map(film => (
-        <StyledMovieLink
-          to={`${film.id}`}
-          key={film.id}
-          state={{ from: location }}
-        >
-          {film.title}
-        </StyledMovieLink>
-      ))}
+      {films.length > 0 && <MovieList films={films} location={location} />}
     </div>
   );
 };
